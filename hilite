@@ -1,0 +1,56 @@
+#! /usr/bin/env ruby
+
+# colors
+
+BLACK   = 0
+RED     = 1
+GREEN   = 2
+YELLOW  = 3
+BLUE    = 4
+MAGENTA = 5
+CYAN    = 6
+WHITE   = 7
+
+# text effects
+
+BRIGHT    = 1
+DIM       = 2
+UNDERLINE = 3
+BLINK     = 5
+
+# //////////////////////////////////////////////////////////////////
+
+def hilite(line, regex, color, *effect)
+  before =
+    if effect.empty?
+      "\033[3#{color}m"
+    else
+      "\033[#{effect[0]};3#{color}m"
+    end
+
+  after = "\033[m"
+
+  m = regex.match(line)
+
+  if m.nil?
+    line
+  else
+    m.pre_match + before + m[0] + after + m.post_match
+  end
+end
+
+# //////////////////////////////////////////////////////////////////
+
+if ARGV.length < 1
+  puts "hilite requires a file to load highlighting information from."
+  exit 1
+end
+
+load ARGV[0]
+
+STDIN.each do |line|
+  $hilites.each do |h|
+    line = hilite(line, *h)
+  end
+  print line
+end

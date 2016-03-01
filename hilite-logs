@@ -6,7 +6,7 @@ $hilites = [
   [/^[A-Z][a-z][a-z] .+ [A-Z][A-Z][A-Z] 20[0-9][0-9] .*$/, WHITE, DIM],
   [/[A-Z][A-Za-z0-9_$]+\.java/, MAGENTA],
   [/at (scala|org|sun|java(x)?|com)\.[A-Za-z0-9_.$]+/, BLUE],
-  [/at com\.yieldmo\.[A-Za-z0-9_.$]+/, CYAN],
+  [/at org\.wislocki\.[A-Za-z0-9_.$]+/, CYAN],
   [/[A-Za-z0-9_$.]+(Exception|Error)$/, RED],
   [/^[A-Za-z0-9_$.]+(Exception|Error)/, RED]
 ]

@@ -1,4 +1,3 @@
 #! /bin/bash
 
-#mvn $@ |& colorit -c ~/.colorit_mvn 
 mvn $@ |& hilite ~/.hilite-mvn

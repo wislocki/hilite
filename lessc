@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-cat $1 | hilite ~/.hilite-logs | less -R ${@:2}
+LESSOPEN='|cat %s | hilite ~/.hilite-logs' less -R $@
